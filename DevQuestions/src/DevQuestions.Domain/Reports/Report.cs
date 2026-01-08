@@ -12,7 +12,7 @@ public class Report
 
     public string Reason { get; set; } = string.Empty;
 
-    public Status Status { get; set; }
+    public ReportStatus ReportStatus { get; set; }
 
     public DateTime CreatedOn { get; set; }
 
