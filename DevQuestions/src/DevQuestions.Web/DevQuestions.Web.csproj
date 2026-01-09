@@ -19,6 +19,9 @@
     <ItemGroup>
       <ProjectReference Include="..\DevQuestions.Controllers\DevQuestions.Controllers.csproj" />
       <ProjectReference Include="..\DevQuestions.Domain\DevQuestions.Domain.csproj" />
+      <ProjectReference Include="..\DevQuestions.Infrastructure.ElasticSearch\DevQuestions.Infrastructure.ElasticSearch.csproj" />
+      <ProjectReference Include="..\DevQuestions.Infrastructure.Postgresql\DevQuestions.Infrastructure.Postgresql.csproj" />
+      <ProjectReference Include="..\DevQuestions.Infrastructure.S3\DevQuestions.Infrastructure.S3.csproj" />
     </ItemGroup>
 
 </Project>
