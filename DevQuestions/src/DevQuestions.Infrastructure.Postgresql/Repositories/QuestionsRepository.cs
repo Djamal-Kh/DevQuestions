@@ -1,10 +1,13 @@
-﻿using Dapper;
+﻿using CSharpFunctionalExtensions;
+using Dapper;
 using DevQuestions.Application.Database;
 using DevQuestions.Application.Questions;
+using DevQuestions.Application.Questions.Fails;
 using DevQuestions.Domain.Questions;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Npgsql;
+using Shared;
 
 namespace DevQuestions.Infrastructure.Postgresql.Repositories;
 
@@ -42,16 +45,27 @@ public class QuestionsRepository : IQuestionsRepository
         return question.Id;
     }
 
-    public Task<Guid> SaveAsync(Question question, CancellationToken cancellationToken) => throw new NotImplementedException();
+    public Task<Guid> AddAnswerAsync(Answer answer, CancellationToken cancellationToken) => throw new NotImplementedException();
+
+    public async Task<Guid> SaveAsync(Question question, CancellationToken cancellationToken)
+    {
+        _dbContext.Questions.Attach(question);
+        await _dbContext.SaveChangesAsync(cancellationToken);
+
+        return question.Id;
+    }
 
     public Task<Guid> DeleteAsync(Guid questionId, CancellationToken cancellationToken) => throw new NotImplementedException();
 
-    public async Task<Question?> GetByIdAsync(Guid questionId, CancellationToken cancellationToken)
+    public async Task<Result<Question, Errors>> GetByIdAsync(Guid questionId, CancellationToken cancellationToken)
     {
         var question = await _dbContext.Questions
             .Include(q => q.Answers)
             .Include(q => q.Solution)
             .FirstOrDefaultAsync(q => q.Id == questionId, cancellationToken);
+
+        if (question is null)
+            return Errors1.General.NotFound(questionId).ToErrors();
 
         return question;
     }

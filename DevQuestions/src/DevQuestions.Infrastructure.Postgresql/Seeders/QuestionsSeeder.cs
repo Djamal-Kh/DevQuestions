@@ -1,7 +1,6 @@
-﻿using DevQuestions.Infrastructure.Postgresql.Seeders;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace DevQuestions.Infrastructure.Postgresql;
+namespace DevQuestions.Infrastructure.Postgresql.Seeders;
 
 public class QuestionsSeeder : ISeeder
 {

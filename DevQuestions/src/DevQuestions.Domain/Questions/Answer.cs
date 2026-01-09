@@ -2,6 +2,15 @@
 
 public class Answer
 {
+    public Answer(Guid id, Guid userId, string text, Guid questionId)
+    {
+        Id = id;
+        UserId = userId;
+        Text = text;
+        QuestionId = questionId;
+        Rating = 0;
+    }
+
     public Guid Id { get; set; }
 
     public Guid UserId { get; set; }
@@ -9,4 +18,10 @@ public class Answer
     public string Text { get; set; } = string.Empty;
 
     public Question Question { get; set; }
+
+    public Guid QuestionId { get; set; }
+
+    public List<Guid> Comments { get; set; } = [];
+
+    public long Rating { get; set; }
 }

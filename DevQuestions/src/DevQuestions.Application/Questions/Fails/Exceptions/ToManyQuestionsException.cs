@@ -1,13 +1,11 @@
 ﻿using DevQuestions.Application.Exceptions;
-using DevQuestions.Application.Questions.Fails;
-using Shared;
 
-namespace DevQuestions.Application.Questions.Exceptions;
+namespace DevQuestions.Application.Questions.Fails.Exceptions;
 
 public class ToManyQuestionsException : BadRequestException
 {
     public ToManyQuestionsException()
-        : base([Errors.Questions.ToManyQuestions()])
+        : base([Errors1.Questions.ToManyQuestions()])
     {
     }
 }
