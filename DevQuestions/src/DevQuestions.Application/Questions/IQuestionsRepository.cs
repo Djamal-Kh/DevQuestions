@@ -15,7 +15,5 @@ public interface IQuestionsRepository
 
     Task<Result<Question, Errors>> GetByIdAsync(Guid questionId, CancellationToken cancellationToken);
 
-    Task<List<Question>> GetAllAsync(CancellationToken cancellationToken);
-
     Task<int> GetOpenQuestionsCountAsync(Guid userId, CancellationToken cancellationToken);
 }
