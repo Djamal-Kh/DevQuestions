@@ -70,7 +70,5 @@ public class QuestionsRepository : IQuestionsRepository
         return question;
     }
 
-    public Task<List<Question>> GetAllAsync(CancellationToken cancellationToken) => throw new NotImplementedException();
-
     public Task<int> GetOpenQuestionsCountAsync(Guid userId, CancellationToken cancellationToken) => throw new NotImplementedException();
 }

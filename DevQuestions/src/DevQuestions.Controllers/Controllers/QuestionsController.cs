@@ -1,7 +1,8 @@
 using DevQuestions.Application.Abstractions;
 using DevQuestions.Application.Questions;
-using DevQuestions.Application.Questions.AddAnswer;
-using DevQuestions.Application.Questions.CreateQuestion;
+using DevQuestions.Application.Questions.Features.AddAnswer;
+using DevQuestions.Application.Questions.Features.CreateQuestion;
+using DevQuestions.Application.Questions.Features.GetQuestions;
 using Microsoft.AspNetCore.Mvc;
 using DevQuestions.Contracts;
 using DevQuestions.Contracts.Questions;
@@ -33,9 +34,16 @@ public class QuestionsController : ControllerBase
     }
 
     [HttpGet]
-    public async Task<IActionResult> Get([FromQuery] GetQuestionsDto questionsDto, CancellationToken cancellationToken)
+    public async Task<IActionResult> Get(
+        [FromServices] IQueryHandler<QuestionResponse, GetQuestionsQuery> handler,
+        [FromQuery] GetQuestionsDto questionsDto,
+        CancellationToken cancellationToken)
     {
-        return Ok("Get Questions");
+        var command = new GetQuestionsQuery(questionsDto);
+
+        var result = await handler.Handle(command, cancellationToken);
+
+        return Ok(result);
     }
 
     [HttpGet("{questionId}")]

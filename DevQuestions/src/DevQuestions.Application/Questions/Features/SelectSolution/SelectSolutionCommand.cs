@@ -1,8 +1,4 @@
-﻿using CSharpFunctionalExtensions;
-using DevQuestions.Application.Abstractions;
-using Shared;
-
-namespace DevQuestions.Application.Questions.SelectSolution;
+﻿namespace DevQuestions.Application.Questions.Features.SelectSolution;
 
 /*public record SelectSolutionCommand() : ICommand;
 
