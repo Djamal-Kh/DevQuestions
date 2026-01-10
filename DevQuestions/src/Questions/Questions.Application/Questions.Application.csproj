@@ -1,0 +1,21 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>enable</Nullable>
+    </PropertyGroup>
+
+    <ItemGroup>
+      <PackageReference Include="Dapper" Version="2.1.66" />
+      <PackageReference Include="Microsoft.EntityFrameworkCore" Version="10.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\Core\Shared\Shared.csproj" />
+      <ProjectReference Include="..\..\Tags\Tags.Contracts\Tags.Contracts.csproj" />
+      <ProjectReference Include="..\Questions.Contracts\Questions.Contracts.csproj" />
+      <ProjectReference Include="..\Questions.Domain\Questions.Domain.csproj" />
+    </ItemGroup>
+
+</Project>
