@@ -1,0 +1,24 @@
+﻿namespace Reports.Domain;
+
+public enum ReportStatus
+{
+    /// <summary>
+    /// Статус открыт
+    /// </summary>
+    OPEN,
+
+    /// <summary>
+    /// Статус в работе
+    /// </summary>
+    IN_PROGRESS,
+
+    /// <summary>
+    /// Статус решен
+    /// </summary>
+    RESOLVED,
+
+    /// <summary>
+    /// Статус отклонен
+    /// </summary>
+    DISMISSED,
+}
