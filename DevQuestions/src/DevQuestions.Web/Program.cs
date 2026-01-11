@@ -1,6 +1,6 @@
+using DevQuestions.Web;
+using DevQuestions.Web.Middlewares;
 using Framework;
-using Web;
-using Web.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 

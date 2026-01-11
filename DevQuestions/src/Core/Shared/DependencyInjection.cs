@@ -1,6 +1,8 @@
-﻿using FluentValidation;
+﻿using System.Transactions;
+using FluentValidation;
 using Microsoft.Extensions.DependencyInjection;
 using Shared.Abstractions;
+using Shared.Database;
 
 namespace Shared;
 

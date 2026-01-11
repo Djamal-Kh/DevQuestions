@@ -2,7 +2,7 @@
 using Shared;
 using Shared.Exceptions;
 
-namespace Web.Middlewares;
+namespace DevQuestions.Web.Middlewares;
 
 public class ExceptionMiddleware
 {
