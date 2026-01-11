@@ -10,8 +10,10 @@ public static class DependencyInjection
     {
         services.AddSingleton<ISqlConnectionFactory, SqlConnectionFactory>();
         services.AddDbContext<QuestionsDbContext>();
+        services.AddScoped<IQuestionsDbContext, QuestionsDbContext>();
         services.AddScoped<IQuestionsRepository, QuestionsRepository>();
-        
+        services.AddScoped<ITransactionManager, PostgreTransactionManager>();
+
         return services;
     }
 }

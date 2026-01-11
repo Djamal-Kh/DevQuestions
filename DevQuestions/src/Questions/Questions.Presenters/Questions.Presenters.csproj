@@ -8,8 +8,10 @@
 
     <ItemGroup>
       <ProjectReference Include="..\..\Core\Framework\Framework.csproj" />
+      <ProjectReference Include="..\..\Core\Infrastructure.S3\Infrastructure.S3.csproj" />
       <ProjectReference Include="..\..\Core\Shared\Shared.csproj" />
       <ProjectReference Include="..\Questions.Application\Questions.Application.csproj" />
+      <ProjectReference Include="..\Questions.Infrastructure.Postgres\Questions.Infrastructure.Postgres.csproj" />
     </ItemGroup>
 
     <ItemGroup>

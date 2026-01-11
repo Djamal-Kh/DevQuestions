@@ -16,14 +16,15 @@ public class AddAnswerHandler : ICommandHandler<Guid, AddAnswerCommand>
     private readonly ITransactionManager _transactionManager;
     private readonly IQuestionsRepository _questionsRepository;
     private readonly ILogger<AddAnswerHandler> _logger;
-    
-    public AddAnswerHandler(ITransactionManager transactionManager, IQuestionsRepository questionsRepository, ILogger<AddAnswerHandler> logger)
+
+    public AddAnswerHandler(ITransactionManager transactionManager, IQuestionsRepository questionsRepository, ILogger<AddAnswerHandler> logger, IValidator<AddAnswerDto> validator)
     {
         _transactionManager = transactionManager;
         _questionsRepository = questionsRepository;
         _logger = logger;
+        _validator = validator;
     }
-    
+
     public async Task<Result<Guid, Errors>> Handle(AddAnswerCommand command, CancellationToken cancellationToken)
     {
         var validationResult = await _validator.ValidateAsync(command.AddAnswerDto);

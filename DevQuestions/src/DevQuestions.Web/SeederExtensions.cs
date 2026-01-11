@@ -1,6 +1,6 @@
 ﻿using Questions.Infrastructure.Postgres;
 
-namespace Web;
+namespace DevQuestions.Web;
 
 public static class SeederExtensions
 {

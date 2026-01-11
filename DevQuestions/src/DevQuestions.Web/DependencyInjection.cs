@@ -2,8 +2,9 @@
 using Questions.Infrastructure.Postgres;
 using Questions.Presenters;
 using Shared;
+using Tags;
 
-namespace Web;
+namespace DevQuestions.Web;
 
 public static class DependencyInjection
 {
@@ -14,7 +15,8 @@ public static class DependencyInjection
             .AddElasticSearchInfrastructure()
             .AddWebDependencies()
             .AddSharedDependencies()
-            .AddQuestionsModule();
+            .AddQuestionsModule()
+            .AddTagsModule();
 
         return services;
     }
